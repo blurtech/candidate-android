@@ -33,7 +33,7 @@ class SwipePresenter: MvpPresenter<SwipeView>() {
     }
 
     fun getSwipeBunch(){
-        api.getSwipeBunch(TokenBuilder.build(PreferencesApi.getJwt(prefs)!!)).enqueue(object : Callback<Wrapper<ArrayList<Initiative>>>{
+        api.getSwipeAll(TokenBuilder.build(PreferencesApi.getJwt(prefs)!!)).enqueue(object : Callback<Wrapper<ArrayList<Initiative>>>{
 
             override fun onResponse(
                 call: Call<Wrapper<ArrayList<Initiative>>>,
@@ -89,7 +89,7 @@ class SwipePresenter: MvpPresenter<SwipeView>() {
     }
 
     fun paginate() {
-        api.getSwipeBunch(TokenBuilder.build(PreferencesApi.getJwt(prefs)!!)).enqueue(object : Callback<Wrapper<ArrayList<Initiative>>>{
+        api.getSwipeAll(TokenBuilder.build(PreferencesApi.getJwt(prefs)!!)).enqueue(object : Callback<Wrapper<ArrayList<Initiative>>>{
             override fun onResponse(
                 call: Call<Wrapper<ArrayList<Initiative>>>,
                 response: Response<Wrapper<ArrayList<Initiative>>>
@@ -109,7 +109,7 @@ class SwipePresenter: MvpPresenter<SwipeView>() {
     }
 
     fun refreshList() {
-        api.getSwipeBunch(TokenBuilder.build(PreferencesApi.getJwt(prefs)!!)).enqueue(object : Callback<Wrapper<ArrayList<Initiative>>>{
+        api.getSwipeAll(TokenBuilder.build(PreferencesApi.getJwt(prefs)!!)).enqueue(object : Callback<Wrapper<ArrayList<Initiative>>>{
             override fun onResponse(
                 call: Call<Wrapper<ArrayList<Initiative>>>,
                 response: Response<Wrapper<ArrayList<Initiative>>>

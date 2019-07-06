@@ -1,7 +1,10 @@
 package blur.tech.candidate.core.models
 
+import android.service.autofill.FillEventHistory
+
 
 class User (
-    val id: String,
-    val username: String
+    val _id: String,
+    val username: String,
+    val geo: Geo
 )

@@ -128,9 +128,9 @@ class SwipeFragment : BaseFragment(), SwipeView, CardStackListener {
 
     override fun onCardSwiped(direction: Direction?) {
         presenter.onSwiped(adapter.getInitiative(manager.topPosition - 1), direction.toString())
-        if (manager.topPosition == adapter.itemCount - 2) {
-            presenter.paginate()
-        }
+//        if (manager.topPosition == adapter.itemCount - 2) {
+//            presenter.paginate()
+//        }
     }
 
     override fun onCardCanceled() {}

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:id="@+id/menu_edit_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="@dimen/margin16dp"
+            android:layout_marginStart="@dimen/margin16dp"
+            android:layout_marginTop="@dimen/margin16dp"
+            android:layout_marginBottom="@dimen/margin8dp">
+        <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_profile"/>
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:textColor="#000000"
+                android:text="Редактировать профиль"
+                android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/menu_edit_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="@dimen/margin16dp"
+            android:layout_marginStart="@dimen/margin16dp"
+            android:layout_marginTop="@dimen/margin16dp"
+            android:layout_marginBottom="@dimen/margin8dp">
+        <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_about"/>
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:textColor="#000000"
+                android:text="О нас"
+                android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/menu_edit_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="@dimen/margin16dp"
+            android:layout_marginStart="@dimen/margin16dp"
+            android:layout_marginTop="@dimen/margin16dp"
+            android:layout_marginBottom="@dimen/margin8dp">
+        <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_exit_to_app_black_24dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:textColor="#000000"
+                android:text="Выход"
+                android:textSize="20sp"/>
+    </LinearLayout>
+
+
+    <!--<com.google.android.material.button.MaterialButton-->
+    <!--android:id="@+id/menu_edit_profile"-->
+    <!--android:text="Профиль"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textColor="#000000"-->
+    <!--android:textAlignment="textStart"-->
+    <!--android:backgroundTint="#ffffff"-->
+    <!--android:textSize="20sp"-->
+    <!--android:drawableStart="@drawable/ic_menu_profile"-->
+    <!--android:layout_marginEnd="@dimen/margin16dp"-->
+    <!--android:layout_marginStart="@dimen/margin16dp"-->
+    <!--android:layout_marginTop="@dimen/margin16dp"-->
+    <!--android:layout_marginBottom="@dimen/margin8dp"-->
+    <!--/>-->
+
+    <!--<com.google.android.material.button.MaterialButton-->
+    <!--android:id="@+id/menu_edit_about"-->
+    <!--android:text="О нас"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textColor="#000000"-->
+    <!--android:textAlignment="textStart"-->
+    <!--android:backgroundTint="#ffffff"-->
+    <!--android:textSize="20sp"-->
+    <!--android:drawableStart="@drawable/ic_menu_about"-->
+    <!--android:layout_marginEnd="@dimen/margin16dp"-->
+    <!--android:layout_marginStart="@dimen/margin16dp"-->
+    <!--android:layout_marginBottom="@dimen/margin8dp"/>-->
+
+</LinearLayout>

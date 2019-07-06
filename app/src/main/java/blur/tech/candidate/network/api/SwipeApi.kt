@@ -11,8 +11,11 @@ import retrofit2.http.POST
 
 interface SwipeApi {
 
-    @GET("/swipe/next-swipes")
-    fun getSwipeBunch(@Header("Authorization") authHeader: String): Call<Wrapper<ArrayList<Initiative>>>
+//    @GET("/swipe/next-swipes")
+//    fun getSwipeBunch(@Header("Authorization") authHeader: String): Call<Wrapper<ArrayList<Initiative>>>
+
+    @GET("/swipe/all")
+    fun getSwipeAll(@Header("Authorization") authHeader: String): Call<Wrapper<ArrayList<Initiative>>>
 
 
     @POST("/swipe")
