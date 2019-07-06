@@ -1,12 +1,9 @@
 package tech.blur.redline.features.signin
 
 import android.content.SharedPreferences
-import blur.tech.App
+import blur.tech.candidate.App
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 import tech.blur.redline.features.signin.api.SignInApi
 import javax.inject.Inject
