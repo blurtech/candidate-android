@@ -9,4 +9,8 @@ class SwipeFragment: BaseFragment() {
     override fun getLayoutID() = R.layout.fragment_swipe
 
 
+    companion object {
+        fun newInstance() = SwipeFragment()
+    }
+
 }

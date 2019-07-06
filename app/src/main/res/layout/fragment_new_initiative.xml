@@ -14,7 +14,7 @@
             android:id="@+id/appBarLayout">
 
         <androidx.appcompat.widget.Toolbar
-                android:id="@+id/create_trip_action_bar"
+                android:id="@+id/create_initiative_action_bar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -25,7 +25,7 @@
                           android:layout_marginBottom="16dp">
 
                 <TextView
-                        android:text="Профиль"
+                        android:text="Новая инициатива"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_width="match_parent"
@@ -49,38 +49,50 @@
             app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="64dp"
             app:layout_constraintTop_toTopOf="parent">
         <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/TextField"
+                app:counterEnabled="true"
+                app:counterMaxLength="100"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
-                android:id="@+id/create_trip_text_layout"
+                android:id="@+id/create_initiative_text_layout"
                 app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
                 app:layout_constraintTop_toTopOf="parent">
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/create_trip_edit_text"
+                    android:id="@+id/create_initiative_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Описание"/>
+                    android:hint="Название"/>
         </com.google.android.material.textfield.TextInputLayout>
-        <TextView
-                android:id="@+id/new_trip_counter"
-                android:text="0/180"
-                android:layout_gravity="end"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/create_initiative_desc_layout"
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/create_initiative_desc_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Описание"/>
+    </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <com.google.android.material.button.MaterialButton
 
-            android:text="Создать трип"
+            style="@style/SignInButton"
+
+            android:text="Создать инициативу"
             android:textSize="16sp"
             app:cornerRadius="22dp"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:id="@+id/create_trip_button" android:layout_marginBottom="16dp"
+            android:id="@+id/create_initiative_button" android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
             app:layout_constraintVertical_bias="1.0" app:layout_constraintStart_toStartOf="parent"

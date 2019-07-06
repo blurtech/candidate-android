@@ -12,4 +12,8 @@
         <item name="backgroundTint">@color/colorAccent</item>
     </style>
 
+    <style name="TextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/colorAccent</item>
+        <item name="hintTextColor">@color/colorAccent</item>
+    </style>
 </resources>
