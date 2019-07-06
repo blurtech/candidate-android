@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">candidate</string>
+    <string name="app_name">Кандидат</string>
+    <string name="SHARED_PREFS">"blur.tech.prefs"</string>
 </resources>
