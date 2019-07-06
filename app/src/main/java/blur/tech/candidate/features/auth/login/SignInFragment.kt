@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import blur.tech.candidate.R
 import blur.tech.candidate.core.DefaultTextWatcher
+import blur.tech.candidate.features.MainFlowFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
-import kotlinx.android.synthetic.main.fragment_auth.view.*
 import kotlinx.android.synthetic.main.fragment_auth.view.button_signin
 import kotlinx.android.synthetic.main.fragment_signin.view.*
 import tech.blur.redline.features.BaseFragment
@@ -37,14 +37,6 @@ class SignInFragment : BaseFragment(), SignInView {
             presenter.signInUser()
         }
 
-//        view.button_signup.setOnClickListener {
-//            activity!!.supportFragmentManager
-//                .beginTransaction()
-//                .replace(R.id.main_container, SignUpFragment.newInstance(), "SignUpFragment")
-//                .addToBackStack(null)
-//                .commit()
-//        }
-
         return view
     }
 
@@ -53,8 +45,9 @@ class SignInFragment : BaseFragment(), SignInView {
     }
 
     override fun onUserAuthDone() {
-        //Toast.makeText(context, "Auth done", Toast.LENGTH_SHORT).show()
-        activity!!.supportFragmentManager.popBackStack()
+        activity!!.supportFragmentManager.beginTransaction()
+            .replace(R.id.mainContainer, MainFlowFragment.newInstance(), "MAIN_FLOW")
+            .commit()
     }
 
 

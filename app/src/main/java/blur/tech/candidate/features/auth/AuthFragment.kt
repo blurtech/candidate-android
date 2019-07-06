@@ -23,7 +23,7 @@ class AuthFragment : BaseFragment() {
         }
 
         view.button_signin.setOnClickListener{
-            fragmentManager!!.beginTransaction()
+            activity!!.supportFragmentManager.beginTransaction()
                 .replace(R.id.mainContainer, SignInFragment.newInstance())
                 .addToBackStack(null)
                 .commit()

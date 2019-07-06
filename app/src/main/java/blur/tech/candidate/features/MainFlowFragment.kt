@@ -87,7 +87,7 @@ class MainFlowFragment : BaseFragment() {
     }
 
     companion object {
-        fun NewInstance() = MainFlowFragment()
+        fun newInstance() = MainFlowFragment()
     }
 
 }
