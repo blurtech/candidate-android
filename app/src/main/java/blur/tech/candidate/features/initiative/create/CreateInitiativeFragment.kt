@@ -1,4 +1,4 @@
-package blur.tech.candidate.features.initiative
+package blur.tech.candidate.features.initiative.create
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,13 +20,13 @@ class CreateInitiativeFragment: BaseFragment(), CreateInitiativeView {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(getLayoutID(), container, false)
 
-        view.create_initiative_desc_text.addTextChangedListener(object: DefaultTextWatcher(){
+        view.create_initiative_desc.addTextChangedListener(object: DefaultTextWatcher(){
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                presenter.desc = s!!.toString()
             }
         })
 
-        view.create_initiative_desc_text.addTextChangedListener(object: DefaultTextWatcher(){
+        view.create_initiative_title.addTextChangedListener(object: DefaultTextWatcher(){
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 presenter.title = s!!.toString()
             }

@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import blur.tech.candidate.R
 import blur.tech.candidate.core.NonSwipeableViewPager
-import blur.tech.candidate.features.initiative.CreateInitiativeFragment
+import blur.tech.candidate.features.initiative.create.CreateInitiativeFragment
 import blur.tech.candidate.features.profile.ProfileFragment
 import blur.tech.candidate.features.swipe.SwipeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView

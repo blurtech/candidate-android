@@ -1,4 +1,4 @@
-package blur.tech.candidate.features.initiative
+package blur.tech.candidate.features.initiative.create
 
 import com.arellomobile.mvp.MvpView
 

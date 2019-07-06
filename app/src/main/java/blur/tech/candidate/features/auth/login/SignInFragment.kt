@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import blur.tech.candidate.R
 import blur.tech.candidate.core.DefaultTextWatcher
 import blur.tech.candidate.features.MainFlowFragment
@@ -45,6 +46,7 @@ class SignInFragment : BaseFragment(), SignInView {
     }
 
     override fun onUserAuthDone() {
+        activity!!.supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         activity!!.supportFragmentManager.beginTransaction()
             .replace(R.id.mainContainer, MainFlowFragment.newInstance(), "MAIN_FLOW")
             .commit()
