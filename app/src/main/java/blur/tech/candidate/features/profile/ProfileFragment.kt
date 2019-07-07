@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -15,7 +16,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import tech.blur.redline.features.BaseFragment
 import blur.tech.candidate.features.profile.fragments.menu.ProfileMenuFragment
-import blur.tech.candidate.features.profile.fragments.mytrips.MyInitiativesFragment
+import blur.tech.candidate.features.profile.fragments.myinitiative.MyInitiativesFragment
 
 class ProfileFragment : BaseFragment(), ProfileView {
 
@@ -24,12 +25,19 @@ class ProfileFragment : BaseFragment(), ProfileView {
 
     lateinit var login: TextView
     lateinit var city: TextView
+    lateinit var progress: ProgressBar
+
+    override fun onResume() {
+        super.onResume()
+        presenter.loadUser()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(getLayoutID(), container, false)
 
         login = view.profile_username
         city = view.profile_user_rank
+        progress = view.progressBar
 
         presenter.loadUser()
 
@@ -50,8 +58,20 @@ class ProfileFragment : BaseFragment(), ProfileView {
 
     override fun setUser(body: User) {
         login.text = body.username
-        city.text = "Шоха"// body.geo.city
+        city.text = "${body.experience.level}. " + getRank(body.experience.level)// body.geo.city
+        val p = body.experience.currentexp/10
+        progress.progress = p
     }
+
+    private fun getRank(level: Int) =
+        when (level){
+            1 -> "Новичек"
+            2 -> "Бывалый"
+            3 -> "Герой двора"
+            4 -> "Спаситель демократии"
+            else -> "???"
+        }
+
 
     override fun getLayoutID() = R.layout.fragment_profile
 

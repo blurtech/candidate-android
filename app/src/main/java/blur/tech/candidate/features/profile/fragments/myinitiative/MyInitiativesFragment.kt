@@ -1,4 +1,4 @@
-package blur.tech.candidate.features.profile.fragments.mytrips
+package blur.tech.candidate.features.profile.fragments.myinitiative
 
 import android.content.Context
 import android.os.Bundle
@@ -49,8 +49,8 @@ class MyInitiativesFragment : BaseFragment(), MyInitiativesView {
 
         emptyTrips.visibility = View.VISIBLE
 
-        initiativeAdapter = InitiativeAdapter(object : InitiativeAdapter.TripClickListener {
-            override fun onTripClickListener(initiative: Initiative) {
+        initiativeAdapter = InitiativeAdapter(object : InitiativeAdapter.InitiativeClickListener {
+            override fun onInitiativeClickListener(initiative: Initiative) {
                 activity!!.supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.mainContainer, InitiativeScreenFragment.newInstance(initiative))
@@ -94,7 +94,7 @@ class MyInitiativesFragment : BaseFragment(), MyInitiativesView {
             emptyTrips.visibility = View.VISIBLE
         } else {
             emptyTrips.visibility = View.GONE
-            initiativeAdapter.setTrips(list)
+            initiativeAdapter.setInitiatives(list)
             profileRecyclerView.adapter = initiativeAdapter
             initiativeAdapter.notifyDataSetChanged()
         }

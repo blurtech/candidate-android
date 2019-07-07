@@ -1,4 +1,4 @@
-package blur.tech.candidate.features.profile.fragments.mytrips
+package blur.tech.candidate.features.profile.fragments.myinitiative
 
 import blur.tech.candidate.core.models.Initiative
 import com.arellomobile.mvp.MvpView

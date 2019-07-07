@@ -33,7 +33,6 @@ class SwipeFragment : BaseFragment(), SwipeView, CardStackListener {
     override fun onResume() {
         super.onResume()
         if (isInit) presenter.refreshList()
-        Toast.makeText(activity, "r $isInit", Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

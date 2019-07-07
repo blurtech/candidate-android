@@ -1,4 +1,4 @@
-package blur.tech.candidate.features.profile.fragments.mytrips
+package blur.tech.candidate.features.profile.fragments.myinitiative
 
 import android.content.SharedPreferences
 import blur.tech.candidate.App
