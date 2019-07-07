@@ -3,8 +3,9 @@ package blur.tech.candidate.features.profile.fragments.mytrips
 import android.content.SharedPreferences
 import blur.tech.candidate.App
 import blur.tech.candidate.core.PreferencesApi
+import blur.tech.candidate.core.TokenBuilder
 import blur.tech.candidate.core.models.Initiative
-import blur.tech.candidate.features.profile.fragments.mytrips.MyTripsView
+import blur.tech.candidate.network.Wrapper
 import blur.tech.candidate.network.api.UserApi
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
@@ -16,38 +17,38 @@ import java.util.*
 import javax.inject.Inject
 
 @InjectViewState
-class MyInitiativesPresenter : MvpPresenter<MyTripsView>() {
+class MyInitiativesPresenter : MvpPresenter<MyInitiativesView>() {
     @Inject
     lateinit var tripRetrofit: Retrofit
 
     @Inject
     lateinit var preferences: SharedPreferences
 
-    internal var list: List<Initiative>? = ArrayList()
+    internal var list: ArrayList<Initiative>? = ArrayList()
 
     init {
         App.INSTANCE.getAppComponent().inject(this)
     }
 
-    val profileApi: UserApi = tripRetrofit.create(UserApi::class.java)
+    val userApi: UserApi = tripRetrofit.create(UserApi::class.java)
 
-    fun loadTrips() {
+    fun loadInitiatives() {
 
-//        profileApi.getMyTrips(PreferencesApi.getJwt(preferences)!!).enqueue(object : Callback<List<Initiative>> {
-//            override fun onFailure(call: Call<List<Initiative>>, t: Throwable) {
-//                viewState.showMessage("Error")
-//            }
-//
-//            override fun onResponse(call: Call<List<Initiative>>, response: Response<List<Initiative>>) {
-//                list = response.body()
-////                viewState.showTrips(list!!)
-//                viewState.hideProgress()
-//            }
-//        })
+        userApi.getInitiatives(TokenBuilder.build(PreferencesApi.getJwt(preferences)!!)).enqueue(object : Callback<Wrapper<ArrayList<Initiative>>> {
+            override fun onFailure(call: Call<Wrapper<ArrayList<Initiative>>>, t: Throwable) {
+                viewState.showMessage("Error")
+            }
+
+            override fun onResponse(call: Call<Wrapper<ArrayList<Initiative>>>, response: Response<Wrapper<ArrayList<Initiative>>>) {
+                list = response.body()!!.data
+                viewState.showTrips(list!!)
+                viewState.hideProgress()
+            }
+        })
     }
 
     fun refresh() {
-        loadTrips()
+        loadInitiatives()
     }
 
     fun onTripClicked(initiative: Initiative) {

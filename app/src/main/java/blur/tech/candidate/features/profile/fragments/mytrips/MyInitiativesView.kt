@@ -1,11 +1,12 @@
 package blur.tech.candidate.features.profile.fragments.mytrips
 
+import blur.tech.candidate.core.models.Initiative
 import com.arellomobile.mvp.MvpView
 
-interface MyTripsView : MvpView {
+interface MyInitiativesView : MvpView {
     fun showProgress()
     fun showMessage(s: String)
-//    fun showTrips(list: List<Trip>)
+    fun showTrips(list: ArrayList<Initiative>)
     fun hideProgress()
 //    fun navigateTo(screen: String, trip: Trip?)
 }

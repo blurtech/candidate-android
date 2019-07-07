@@ -18,7 +18,7 @@ class CardStackAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return ViewHolder(inflater.inflate(R.layout.item_initiative, parent, false))
+        return ViewHolder(inflater.inflate(R.layout.item_initiative_swipe, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -27,7 +27,7 @@ class CardStackAdapter(
         holder.desc.text = initiative.describe
         holder.rating.text = initiative.rating.toString()
         when (initiative.rating) {
-            in Int.MIN_VALUE..-1 -> holder.rating.setTextColor(Color.parseColor("FFF44336"))
+            in Int.MIN_VALUE..-1 -> holder.rating.setTextColor(Color.parseColor("#FFF44336"))
             0 -> holder.rating.setTextColor(Color.parseColor("#8D000000"))
             else -> holder.rating.setTextColor(Color.parseColor("#FF4CAF50"))
         }

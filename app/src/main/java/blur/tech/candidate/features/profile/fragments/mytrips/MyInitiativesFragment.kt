@@ -11,17 +11,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import blur.tech.candidate.R
+import blur.tech.candidate.core.models.Initiative
 import blur.tech.candidate.features.MainActivity
+import blur.tech.candidate.features.initiative.show.InitiativeScreenFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.profile_my_innitiatives.view.*
 import tech.blur.redline.features.BaseFragment
 
-class MyInitiativesFragment : BaseFragment(), MyTripsView {
+class MyInitiativesFragment : BaseFragment(), MyInitiativesView {
 
 
     lateinit var activityContext: MainActivity
 
-//    private lateinit var tripAdapter: TripAdapter
+    private lateinit var initiativeAdapter: InitiativeAdapter
     private lateinit var profileRecyclerView: RecyclerView
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
@@ -47,15 +49,19 @@ class MyInitiativesFragment : BaseFragment(), MyTripsView {
 
         emptyTrips.visibility = View.VISIBLE
 
-//        tripAdapter = TripAdapter(object : TripAdapter.TripClickListener {
-//            override fun onTripClickListener(trip: Trip) {
-//                navigateTo(FragmentTags.SHOW_TRIP, trip)
-//            }
-//        })
+        initiativeAdapter = InitiativeAdapter(object : InitiativeAdapter.TripClickListener {
+            override fun onTripClickListener(initiative: Initiative) {
+                activity!!.supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.mainContainer, InitiativeScreenFragment.newInstance(initiative))
+                    .addToBackStack(null)
+                    .commit()
+            }
+        })
 
         swipeRefreshLayout.setOnRefreshListener { myInitiativesPresenter.refresh() }
         profileRecyclerView.layoutManager = layoutManager
-//        myInitiativesPresenter.loadTrips()
+        myInitiativesPresenter.loadInitiatives()
     }
 
     override fun onAttach(context: Context) {
@@ -83,16 +89,16 @@ class MyInitiativesFragment : BaseFragment(), MyTripsView {
         swipeRefreshLayout.isRefreshing = true
     }
 
-//    override fun showTrips(list: List<Trip>) {
-//        if (list.isEmpty()) {
-//            emptyTrips.visibility = View.VISIBLE
-//        } else {
-//            emptyTrips.visibility = View.GONE
-//            tripAdapter.setTrips(list)
-//            profileRecyclerView.adapter = tripAdapter
-//            tripAdapter.notifyDataSetChanged()
-//        }
-//    }
+    override fun showTrips(list: ArrayList<Initiative>) {
+        if (list.isEmpty()) {
+            emptyTrips.visibility = View.VISIBLE
+        } else {
+            emptyTrips.visibility = View.GONE
+            initiativeAdapter.setTrips(list)
+            profileRecyclerView.adapter = initiativeAdapter
+            initiativeAdapter.notifyDataSetChanged()
+        }
+    }
 
     override fun hideProgress() {
         swipeRefreshLayout.isRefreshing = false
