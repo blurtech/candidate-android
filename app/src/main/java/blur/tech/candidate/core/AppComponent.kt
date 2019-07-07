@@ -6,6 +6,8 @@ import blur.tech.candidate.core.modules.SharedPreferencesModule
 import blur.tech.candidate.features.MainActivityPresenter
 import blur.tech.candidate.features.initiative.create.CreateInitiativePresenter
 import blur.tech.candidate.features.initiative.show.InitiativeScreenPresenter
+import blur.tech.candidate.features.initiative.orgshow.OrgInitiativeScreenPresenter
+import blur.tech.candidate.features.initiative_list.list.InitiativesListPresenter
 import blur.tech.candidate.features.profile.ProfilePresenter
 import blur.tech.candidate.features.profile.fragments.menu.ProfileMenuFragment
 import blur.tech.candidate.features.profile.fragments.myinitiative.MyInitiativesPresenter
@@ -26,5 +28,7 @@ interface AppComponent {
     fun inject(myInitiativesPresenter: MyInitiativesPresenter)
     fun inject(profileMenuFragment: ProfileMenuFragment)
     fun inject(initiativeScreenPresenter: InitiativeScreenPresenter)
+    fun inject(initiativesListPresenter: InitiativesListPresenter)
+    fun inject(orgInitiativeScreenPresenter: OrgInitiativeScreenPresenter)
 }
 

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import blur.tech.candidate.R
+import blur.tech.candidate.core.InitiativeAdapter
 import blur.tech.candidate.core.models.Initiative
 import blur.tech.candidate.features.MainActivity
 import blur.tech.candidate.features.initiative.show.InitiativeScreenFragment
@@ -49,7 +50,8 @@ class MyInitiativesFragment : BaseFragment(), MyInitiativesView {
 
         emptyTrips.visibility = View.VISIBLE
 
-        initiativeAdapter = InitiativeAdapter(object : InitiativeAdapter.InitiativeClickListener {
+        initiativeAdapter = InitiativeAdapter(object :
+            InitiativeAdapter.InitiativeClickListener {
             override fun onInitiativeClickListener(initiative: Initiative) {
                 activity!!.supportFragmentManager
                     .beginTransaction()

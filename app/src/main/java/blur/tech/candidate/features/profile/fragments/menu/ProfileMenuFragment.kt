@@ -10,6 +10,7 @@ import blur.tech.candidate.App
 import blur.tech.candidate.R
 import blur.tech.candidate.core.PreferencesApi
 import blur.tech.candidate.features.MainFlowFragment
+import blur.tech.candidate.features.auth.AuthFragment
 import kotlinx.android.synthetic.main.fragment_profile_menu.view.*
 import tech.blur.redline.features.BaseFragment
 import tech.blur.redline.features.signin.SignInFragment
@@ -40,7 +41,7 @@ class ProfileMenuFragment : BaseFragment(), ProfileMenuView {
         PreferencesApi.delData(prefs)
         activity!!.supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         activity!!.supportFragmentManager.beginTransaction()
-            .replace(R.id.mainContainer, SignInFragment.newInstance(), "SIGN_IN")
+            .replace(R.id.mainContainer, AuthFragment.newInstance(), "SIGN_IN")
             .commit()
     }
 

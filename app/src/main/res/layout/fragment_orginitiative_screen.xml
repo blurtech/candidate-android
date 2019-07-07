@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:text="Title"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/margin8dp"
+            android:layout_marginEnd="@dimen/margin8dp"
+            android:layout_marginTop="@dimen/margin8dp"
+            android:textSize="26sp"
+            android:layout_height="wrap_content" android:id="@+id/initiativeScreenTitle"/>
+    <TextView
+            android:text="Desc"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/margin8dp"
+            android:layout_marginEnd="@dimen/margin8dp"
+            android:layout_marginTop="@dimen/margin8dp"
+            android:layout_height="wrap_content" android:id="@+id/initiativeScreenDesc"/>
+
+    <!--<com.google.android.material.radiobutton.MaterialRadioButton android:layout_width="match_parent"-->
+                                                                 <!--android:layout_height="wrap_content"/>-->
+
+
+</LinearLayout>

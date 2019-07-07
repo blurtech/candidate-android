@@ -6,6 +6,7 @@ import blur.tech.candidate.core.PreferencesApi
 import blur.tech.candidate.core.TokenBuilder
 import blur.tech.candidate.core.models.Initiative
 import blur.tech.candidate.core.models.Vote
+import blur.tech.candidate.features.initiative.orgshow.OrgInitiativeScreenView
 import blur.tech.candidate.network.Wrapper
 import blur.tech.candidate.network.api.SwipeApi
 import com.arellomobile.mvp.InjectViewState
@@ -17,7 +18,7 @@ import retrofit2.Retrofit
 import javax.inject.Inject
 
 @InjectViewState
-class InitiativeScreenPresenter : MvpPresenter<InitiativeScreenView>() {
+class InitiativeScreenPresenter : MvpPresenter<OrgInitiativeScreenView>() {
 
     @Inject
     lateinit var retrofit: Retrofit
