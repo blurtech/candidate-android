@@ -1,5 +1,6 @@
-package blur.tech.candidate.features.swipe
+package blur.tech.candidate.features.initiative_list.swipe
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +10,9 @@ import blur.tech.candidate.R
 import blur.tech.candidate.core.models.Initiative
 
 class CardStackAdapter(
-    private var initiatives: ArrayList<Initiative> = ArrayList(emptyList()),
-    private val initiativeClickListener:InitiativeClickListener
+    private var initiatives: ArrayList<Initiative> = ArrayList(
+        emptyList()
+    )
 
 ) : RecyclerView.Adapter<CardStackAdapter.ViewHolder>() {
 
@@ -23,6 +25,12 @@ class CardStackAdapter(
         val initiative = initiatives[position]
         holder.title.text = initiative.title
         holder.desc.text = initiative.describe
+        holder.rating.text = initiative.rating.toString()
+        when (initiative.rating) {
+            in Int.MIN_VALUE..-1 -> holder.rating.setTextColor(Color.parseColor("FFF44336"))
+            0 -> holder.rating.setTextColor(Color.parseColor("#8D000000"))
+            else -> holder.rating.setTextColor(Color.parseColor("#FF4CAF50"))
+        }
     }
 
     override fun getItemCount(): Int {
@@ -41,7 +49,9 @@ class CardStackAdapter(
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.itemTitle)
-        var desc: TextView = view.findViewById(R.id.itemDesc)
+        val desc: TextView = view.findViewById(R.id.itemDesc)
+        val rating: TextView = view.findViewById(R.id.itemRating)
+
 
     }
 

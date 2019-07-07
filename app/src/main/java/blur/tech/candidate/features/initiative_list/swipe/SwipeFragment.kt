@@ -1,4 +1,4 @@
-package blur.tech.candidate.features.swipe
+package blur.tech.candidate.features.initiative_list.swipe
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
 import blur.tech.candidate.R
 import blur.tech.candidate.core.models.Initiative
-import blur.tech.candidate.features.initiative.show.InitiativeScreenFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.yuyakaido.android.cardstackview.*
 import kotlinx.android.synthetic.main.fragment_swipe.view.*
@@ -58,15 +57,7 @@ class SwipeFragment : BaseFragment(), SwipeView, CardStackListener {
     }
 
     override fun onListReady(list: ArrayList<Initiative>) {
-        adapter = CardStackAdapter(list, object : CardStackAdapter.InitiativeClickListener {
-            override fun onInitiativeClicked(initiative: Initiative) {
-                activity!!.supportFragmentManager.beginTransaction()
-                    .replace(R.id.mainContainer, InitiativeScreenFragment.newInstance(initiative))
-                    .addToBackStack(null)
-                    .commit()
-            }
-
-        })
+        adapter = CardStackAdapter(list)
         cardStack.adapter = adapter
         if (!isInit) {
 

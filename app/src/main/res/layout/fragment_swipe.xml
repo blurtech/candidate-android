@@ -3,10 +3,6 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <com.google.android.material.switchmaterial.SwitchMaterial
-            android:text="Switch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/switch1"/>
     <com.yuyakaido.android.cardstackview.CardStackView
             android:id="@+id/swipeList"
             android:layout_width="match_parent"

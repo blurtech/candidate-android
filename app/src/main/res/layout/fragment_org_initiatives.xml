@@ -5,10 +5,7 @@
               android:layout_height="match_parent">
 
     <TextView
-            android:text="TextView"
+            android:text="meh"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView3"/>
-    <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content" android:id="@+id/textView2"/>
 </LinearLayout>

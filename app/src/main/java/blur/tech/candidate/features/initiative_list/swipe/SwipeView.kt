@@ -1,7 +1,6 @@
-package blur.tech.candidate.features.swipe
+package blur.tech.candidate.features.initiative_list.swipe
 
 import blur.tech.candidate.core.models.Initiative
-import blur.tech.candidate.network.Wrapper
 import com.arellomobile.mvp.MvpView
 
 interface SwipeView: MvpView{
