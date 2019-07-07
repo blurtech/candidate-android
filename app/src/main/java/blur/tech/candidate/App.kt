@@ -1,4 +1,4 @@
-package blur.tech
+package blur.tech.candidate
 
 
 import android.app.Application

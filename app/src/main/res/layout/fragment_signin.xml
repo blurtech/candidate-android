@@ -19,6 +19,7 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_signin_login"
                 android:layout_width="270dp"
+                android:maxLines="1"
                 android:layout_height="wrap_content"
                 android:hint="Логин"/>
     </com.google.android.material.textfield.TextInputLayout>
