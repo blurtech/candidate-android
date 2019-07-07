@@ -11,13 +11,13 @@ import blur.tech.candidate.R
 import blur.tech.candidate.core.models.Initiative
 import java.util.*
 
-class InitiativeAdapter(private val tripClickListener: TripClickListener) :
+class InitiativeAdapter(private val inititativeClickListener: TripClickListener) :
     RecyclerView.Adapter<InitiativeAdapter.MainFeedHolder>() {
     private val trips = ArrayList<Initiative>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainFeedHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_initiative, parent, false)
-        return MainFeedHolder(itemView, tripClickListener)
+        return MainFeedHolder(itemView, inititativeClickListener)
     }
 
     fun setTrips(eventList: List<Initiative>?) {
@@ -53,6 +53,7 @@ class InitiativeAdapter(private val tripClickListener: TripClickListener) :
             }
 
             cardView.setOnClickListener { tripClickListener.onTripClickListener(initiative) }
+
         }
     }
 

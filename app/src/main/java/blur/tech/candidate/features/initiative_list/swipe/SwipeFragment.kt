@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
 import android.widget.Toast
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
 import blur.tech.candidate.R
 import blur.tech.candidate.core.models.Initiative
+import blur.tech.candidate.features.initiative.show.InitiativeScreenFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.yuyakaido.android.cardstackview.*
 import kotlinx.android.synthetic.main.fragment_swipe.view.*
@@ -31,6 +33,7 @@ class SwipeFragment : BaseFragment(), SwipeView, CardStackListener {
     override fun onResume() {
         super.onResume()
         if (isInit) presenter.refreshList()
+        Toast.makeText(activity, "r $isInit", Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -57,13 +60,30 @@ class SwipeFragment : BaseFragment(), SwipeView, CardStackListener {
     }
 
     override fun onListReady(list: ArrayList<Initiative>) {
-        adapter = CardStackAdapter(list)
+
+        adapter = CardStackAdapter(list, object : CardStackAdapter.InitiativeClickListener{
+            override fun onLongClickListener(initiative: Initiative) {
+                val setting = RewindAnimationSetting.Builder()
+                    .setDirection(Direction.Bottom)
+                    .setDuration(Duration.Normal.duration)
+                    .setInterpolator(DecelerateInterpolator())
+                    .build()
+                manager.setRewindAnimationSetting(setting)
+                cardStack.rewind()
+            }
+
+            override fun onInitiativeClicked(initiative: Initiative) {
+                activity!!.supportFragmentManager.beginTransaction()
+                    .replace(R.id.mainContainer, InitiativeScreenFragment.newInstance(initiative))
+                    .addToBackStack(null)
+                    .commit()
+            }
+        })
+
         cardStack.adapter = adapter
         if (!isInit) {
-
             initialize()
         }
-
         isInit = true
     }
 
@@ -96,7 +116,7 @@ class SwipeFragment : BaseFragment(), SwipeView, CardStackListener {
         manager.setStackFrom(StackFrom.None)
         manager.setCanScrollHorizontal(true)
         manager.setCanScrollVertical(true)
-        manager.setSwipeableMethod(SwipeableMethod.Manual)
+        manager.setSwipeableMethod(SwipeableMethod.AutomaticAndManual)
         manager.setOverlayInterpolator(LinearInterpolator())
         cardStack.layoutManager = manager
         cardStack.adapter = adapter

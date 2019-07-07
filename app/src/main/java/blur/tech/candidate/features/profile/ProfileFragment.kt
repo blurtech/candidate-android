@@ -29,7 +29,7 @@ class ProfileFragment : BaseFragment(), ProfileView {
         val view = inflater.inflate(getLayoutID(), container, false)
 
         login = view.profile_username
-        city = view.profile_user_city
+        city = view.profile_user_rank
 
         presenter.loadUser()
 
@@ -50,7 +50,7 @@ class ProfileFragment : BaseFragment(), ProfileView {
 
     override fun setUser(body: User) {
         login.text = body.username
-        city.text = body.geo.city
+        city.text = "Шоха"// body.geo.city
     }
 
     override fun getLayoutID() = R.layout.fragment_profile

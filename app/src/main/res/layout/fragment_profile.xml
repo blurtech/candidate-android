@@ -18,7 +18,7 @@
                 android:layout_marginBottom="16dp">
 
             <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:orientation="vertical" app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:id="@+id/profile_user_city"/>
+                        android:id="@+id/profile_user_rank"/>
+                <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:progress="45"
+                        android:id="@+id/progressBar"/>
 
             </LinearLayout>
 

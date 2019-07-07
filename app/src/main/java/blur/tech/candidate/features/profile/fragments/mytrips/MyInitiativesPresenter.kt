@@ -30,7 +30,7 @@ class MyInitiativesPresenter : MvpPresenter<MyInitiativesView>() {
         App.INSTANCE.getAppComponent().inject(this)
     }
 
-    val userApi: UserApi = tripRetrofit.create(UserApi::class.java)
+    private val userApi: UserApi = tripRetrofit.create(UserApi::class.java)
 
     fun loadInitiatives() {
 

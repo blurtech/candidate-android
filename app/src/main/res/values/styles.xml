@@ -12,6 +12,11 @@
         <item name="backgroundTint">@color/colorAccent</item>
     </style>
 
+    <style name="SuperLikeButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">#2196F3</item>
+    </style>
+
+
     <style name="TextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/colorAccent</item>
         <item name="hintTextColor">@color/colorAccent</item>
