@@ -1,4 +1,4 @@
-package blur.tech.candidate.features.swipe
+package blur.tech.candidate.features.initiative_list.swipe
 
 import android.content.SharedPreferences
 import blur.tech.candidate.App

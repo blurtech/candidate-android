@@ -11,8 +11,10 @@ import androidx.fragment.app.FragmentPagerAdapter
 import blur.tech.candidate.R
 import blur.tech.candidate.core.NonSwipeableViewPager
 import blur.tech.candidate.features.initiative.create.CreateInitiativeFragment
+import blur.tech.candidate.features.initiative_list.InitiativesFlowFragment
+import blur.tech.candidate.features.initiative_list.list.InitiativesListFragment
 import blur.tech.candidate.features.profile.ProfileFragment
-import blur.tech.candidate.features.swipe.SwipeFragment
+import blur.tech.candidate.features.initiative_list.swipe.SwipeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_main_flow.*
 import kotlinx.android.synthetic.main.fragment_main_flow.view.*
@@ -89,7 +91,7 @@ class MainFlowFragment : BaseFragment() {
         private val mFragmentList = ArrayList<Fragment>()
 
         init {
-            mFragmentList.add(SwipeFragment.newInstance())
+            mFragmentList.add(InitiativesFlowFragment.newInstance())
             mFragmentList.add(ProfileFragment.newInstance())
 
         }
